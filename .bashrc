@@ -1,0 +1,7 @@
+alias gs='git status'
+alias gcm='git commit -m '
+alias gcam='git commit -am '
+alias la='ls -a'
+alias amend='git commit -a --amend'
+alias wip='git add -u && git commit -m "WIP"'
+alias save='git add -A && git commit -m "SAVE POINT"'
