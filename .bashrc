@@ -1,4 +1,5 @@
 alias gs='git status'
+alias gd='git diff'
 alias gf='git fetch'
 alias go='git checkout '
 alias gcm='git commit -m '
