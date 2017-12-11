@@ -19,6 +19,8 @@ alias lg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 alias ls='ls -l'
 alias prune='git fetch --prune'
 alias save='git add -A && git commit -m "SAVE POINT"'
+alias searchContents='searchCommitContents'
+alias search='searchCommitMessages'
 alias squash2='git rebase -i HEAD~2'
 alias squashx='gitrebaseX'
 alias wip='git add -u && git commit -m "WIP"'
@@ -26,4 +28,14 @@ alias wip='git add -u && git commit -m "WIP"'
 gitRebaseX() {
 	echo Rebasing $1 commits;
 	git rebase -i HEAD~$1;
+};
+
+searchCommitContents() {
+        echo Searching commit contents for: $1;
+        git grep $1 $(git rev-list --all);
+};
+
+searchCommitMessages() {
+        echo Searching commit messages for: $1;
+        git log --all --grep=$1;
 };
