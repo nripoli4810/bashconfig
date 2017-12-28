@@ -1,4 +1,5 @@
 alias amend='git commit -a --amend'
+alias branches='git branch -la'
 alias clearg="clear && git status"
 alias drb="git push origin :"
 alias gcam='git commit -am '
