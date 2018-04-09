@@ -36,7 +36,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias amend='git commit -a --amend'
 alias clearg="clear && git status"
-alias drb="git push origin :"
 alias gcam='git commit -am '
 alias gcm='git commit -m '
 alias gd='git diff'
@@ -54,6 +53,8 @@ alias lg1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 alias lg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias ls='ls -l'
 alias prune='git fetch --prune'
+alias rb='git branch -D '
+alias rob='git push origin -d '
 alias save='git add -A && git commit -m "SAVE POINT"'
 alias searchContents='searchCommitContents'
 alias search='searchCommitMessages'
