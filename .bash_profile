@@ -1,5 +1,5 @@
 alias amend='git commit -a --amend'
-alias branches='git branch -la'
+alias branches='git branch -lavv'
 alias clearg="clear && git status"
 alias gcam='git commit -am '
 alias gcm='git commit -m '
