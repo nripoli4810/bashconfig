@@ -1,31 +1,25 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-# Path to your oh-my-zsh installation.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
 export ZSH=$HOME/.oh-my-zsh
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$ANDROID_HOME/platform-tools:$PATH
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+eval "$(rbenv init -)"
+
 ZSH_THEME="agnoster"
-
-# Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,6 +28,11 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+#docker
+alias dcu='docker-compose up'
+alias dcs='docker-compose stop'
+
+#git
 alias amend='git commit -a --amend'
 alias clearg="clear && git status"
 alias gcam='git commit -am '
@@ -51,6 +50,7 @@ alias la='ls -la'
 alias lg=!'git lg1'
 alias lg1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias lg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias lg3="git log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'"
 alias ls='ls -l'
 alias prune='git fetch --prune'
 alias rb='git branch -D '
@@ -63,22 +63,35 @@ alias squashx='gitrebaseX'
 alias subup='git submodule update --init --recursive'
 alias wip='git add -u && git commit -m "WIP"'
 
-gitRebaseX() {
+function gitRebaseX {
 	echo Rebasing $1 commits;
 	git rebase -i HEAD~$1;
 };
 
-searchCommitContents() {
+function searchCommitContents {
         echo Searching commit contents for: $1;
         git grep $1 $(git rev-list --all);
 };
 
-searchCommitMessages() {
+function searchCommitMessages {
         echo Searching commit messages for: $1;
         git log --all --grep=$1;
 };
 
-DEFAULT_USER="nripoli"
+# open vscode
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+};
+
+DEFAULT_USER="<change me>"
+FASTLANE_USER="<change me>"
 
 bindkey "[D" backward-word
 bindkey "[C" forward-word
