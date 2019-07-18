@@ -63,20 +63,24 @@ alias squashx='gitrebaseX'
 alias subup='git submodule update --init --recursive'
 alias wip='git add -u && git commit -m "WIP"'
 
-function gitRebaseX {
+function squash {
 	echo Rebasing $1 commits;
 	git rebase -i HEAD~$1;
 };
 
-function searchCommitContents {
+function gsContents {
         echo Searching commit contents for: $1;
         git grep $1 $(git rev-list --all);
 };
 
-function searchCommitMessages {
+function gsCommitMessages {
         echo Searching commit messages for: $1;
         git log --all --grep=$1;
 };
+
+# React Native
+alias rna='react-native run-android'
+alias rni='react-native run-ios'
 
 # open vscode
 function code {
