@@ -62,6 +62,7 @@ alias squash2='git rebase -i HEAD~2'
 alias squashx='gitrebaseX'
 alias subup='git submodule update --init --recursive'
 alias wip='git add -u && git commit -m "WIP"'
+alias branch-count='git branch -la | wc -l'
 
 function squash {
 	echo Rebasing $1 commits;
