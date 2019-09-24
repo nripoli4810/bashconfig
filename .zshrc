@@ -4,7 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 . /usr/local/opt/asdf/asdf.sh
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
-
 # nodenv
 export NODENV_ROOT="$HOME/.nodenv"
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -113,8 +112,6 @@ function code {
 
 DEFAULT_USER="<change me>"
 FASTLANE_USER="<change me>"
-
-
 
 bindkey "[D" backward-word
 bindkey "[C" forward-word
