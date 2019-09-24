@@ -31,8 +31,9 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
+RPROMPT='%{$fg_bold[green]%}[%*]% %{$reset_color%}'
 
-plugins=(zsh-nvm)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
