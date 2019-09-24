@@ -1,7 +1,13 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# asdf
+. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+
 # nodenv
 export NODENV_ROOT="$HOME/.nodenv"
+export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH:~/.nodenv/shims
 eval "$(nodenv init -)"
 
@@ -16,6 +22,10 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
+
+# YVM
+export YVM_DIR=/usr/local/opt/yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 
 # zsh
 export ZSH=$HOME/.oh-my-zsh
@@ -84,6 +94,8 @@ function gsCommitMessages {
 };
 
 # React Native
+REACT_EDITOR=code
+
 alias rna='react-native run-android'
 alias rni='react-native run-ios'
 
@@ -101,6 +113,8 @@ function code {
 
 DEFAULT_USER="<change me>"
 FASTLANE_USER="<change me>"
+
+
 
 bindkey "[D" backward-word
 bindkey "[C" forward-word
