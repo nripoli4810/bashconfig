@@ -1,20 +1,24 @@
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# nodenv
+export NODENV_ROOT="$HOME/.nodenv"
+export PATH=$HOME/bin:/usr/local/bin:$PATH:~/.nodenv/shims
+eval "$(nodenv init -)"
+
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# android
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
-export ZSH=$HOME/.oh-my-zsh
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
 
-eval "$(rbenv init -)"
-
+# zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
