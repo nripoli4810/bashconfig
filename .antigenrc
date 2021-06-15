@@ -1,0 +1,15 @@
+# Use oh-my-zsh plugins
+antigen use oh-my-zsh
+
+# Default Repo Plugins
+antigen bundle command-not-found
+antigen bundle asdf
+
+# External Repo Plugins
+# antigen bundle joel-porquet/zshdircolors-solarized.git
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Theme
+antigen theme agnoster
+
+antigen apply
